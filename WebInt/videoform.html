@@ -1,0 +1,53 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<section id="Question6">
+  <article >
+    <h1><img src="img/pin.png" style="vertical-align: middle; margin-right: 2%;" alt="" class="ico_categorie" />Video Form</h1>
+    <br>
+    <form id="contact-form" action="" method="post">
+
+        <li>
+          <label for="viderourl">Video Url:</label>
+          <input type="url" name="videourl" id="videourl" value="" />
+        </li>
+
+        <li>
+          <label for="viderourl">Starting Time:</label>
+          <input type="number" name="strttime" id="strttime" value="" />
+        </li>
+        <input type="button" value="submit" onclick="getvideo()"/>
+        <input type="button" value="Rotate" onclick="rotate()"/>
+        <input type="button" value="extrat preview" onclick="getpreview()"/>
+
+        <script>
+        function getvideo(){
+          console.log($('#videourl').val());
+        $('video').attr('src',$('#videourl').val()+"#t="+$("#strttime").val());
+        $('video').load();
+        console.log($('video'));
+        }
+        </script>
+    </form>
+  </article>
+    <video id="mainVideo" src="" width="320" height="240"  controls> </video>
+    <div id="preview">
+
+        <script>
+        var angle=0;
+        function rotate(){
+          angle+=45;
+          $('#mainVideo').css({'-ms-transform':'rotate('+angle+'deg)'});
+          $('#mainVideo').css({'-webkit-transform':'rotate('+angle+'deg)'});
+          $('#mainVideo').css({'transform':'rotate('+angle+'deg)'});
+          console.log($('#mainVideo'));
+          console.log($('#mainVideo').css());
+        }
+    function getpreview(){
+     $('#preview').html(
+       '<video src="'+$("video").attr('src').split('#')[0]+"#t=0,5"+'" width="320" height="240" controls autoplay> </video>'
+     );
+     $('video')[1].load();
+      }
+    </script>
+  </article>
+</section>
