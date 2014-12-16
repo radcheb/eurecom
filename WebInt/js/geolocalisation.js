@@ -79,11 +79,11 @@ function setForm(lat,lng){
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
-  // console.log(results);
-     $('#street').val(results[0].address_components[2].long_name);
-     $('#zip').val(results[0].address_components[7].long_name);
+  console.log(results);
+     $('#street').val(results[0].address_components[1].long_name);
+     $('#zip').val(results[0].address_components[6].long_name);
      $('#city').val(results[0].address_components[3].long_name);
-     $('#country').val(results[0].address_components[6].long_name);
+     $('#country').val(results[0].address_components[5].long_name);
       } else {
         alert('No results found');
       }

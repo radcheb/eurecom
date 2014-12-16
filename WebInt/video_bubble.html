@@ -1,0 +1,31 @@
+<!-- svg  height="240" width="320" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" style='visibility:hidden'>
+<mask id='mask'>
+    <rect stroke="black" fill="none" height="100%" width="100%" y="0" x="0"></rect>
+    <ellipse fill="black" ry="100" rx="150" cy="120" cx="160"></ellipse>
+</mask>
+</svg-->
+<svg>
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="00%" x2 ="0" y2="100%">
+      <stop stop-color="black" offset="0"/>
+      <stop stop-color="white" offset="1"/>
+    </linearGradient>
+
+    <mask id="masking" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+      <rect y="0.3" width="1" height=".7" fill="url(#gradient)" />
+      <circle cx=".5" cy=".5" r=".35" fill="white" />
+    </mask>
+  </defs>
+</svg>
+
+<style type="text/css">
+#mainVideo{
+img {
+	mask:url(#mask); 
+	-webkit-mask:url(#mask)	;
+}
+</style>
+<section id="Question7">
+<video id="mainVideo" class='mainvideo' src="http://html5demos.com/assets/dizzy.mp4" width="320" height="240" controls autoplay  mask="url(#masking)"> </video>
+<img src="http://1.1.1.4/bmi/www.html5rocks.com/en/tutorials/masking/adobe/humayun-thom-arno.jpg" mask="url(#masking)">
+</section>
